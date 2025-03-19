@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\View;
 Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('admin');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
