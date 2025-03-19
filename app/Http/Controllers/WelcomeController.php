@@ -11,7 +11,8 @@ class WelcomeController extends Controller
     {
         $site_configure = DB::table('site_config')->first();
         $services = DB::table('services')->get();
-        // dd($site_configure, $services);
-        return view('welcome');
+        $about_me = DB::table('about_me')->first();
+        // dd($site_configure, $services, $about_me);
+        return view('welcome', compact('site_configure', 'services', 'about_me'));
     }
 }
