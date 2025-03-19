@@ -1,0 +1,295 @@
+CREATE TABLE site_config (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    site_name VARCHAR(100) NOT NULL COMMENT 'Name of the website',
+    site_logo VARCHAR(255) NOT NULL COMMENT 'URL or path to the site logo',
+    logo_alt_text VARCHAR(255) COMMENT 'Alt text for the site logo',
+    favicon VARCHAR(255) COMMENT 'URL or path to the favicon',
+    address TEXT COMMENT 'Physical address of the site',
+    email VARCHAR(100) COMMENT 'Email address for contact',
+    phone VARCHAR(20) COMMENT 'Phone number for contact',
+    linkidin VARCHAR(255) COMMENT 'LinkedIn profile URL',
+    pinterest VARCHAR(255) COMMENT 'Pinterest profile URL',
+    git VARCHAR(255) COMMENT 'Git profile URL',
+    home_banner_image VARCHAR(255) COMMENT 'URL or path to the home banner image',
+    home_banner_alt_text VARCHAR(255) COMMENT 'Alt text for the home banner image',
+    parallax_image VARCHAR(255) COMMENT 'URL or path to the parallax image',
+    parallax_alt_text VARCHAR(255) COMMENT 'Alt text for the parallax image',
+    meta_title VARCHAR(255) COMMENT 'Meta title for SEO',
+    meta_description TEXT COMMENT 'Meta description for SEO',
+    meta_keywords TEXT COMMENT 'Meta keywords for SEO',
+    canonical_url VARCHAR(255) COMMENT 'Canonical URL for the homepage',
+    og_title VARCHAR(255) COMMENT 'Open Graph title for social sharing',
+    og_description TEXT COMMENT 'Open Graph description for social sharing',
+    og_image VARCHAR(255) COMMENT 'Open Graph image for social sharing',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT 'Timestamp when the record was created',
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Timestamp when the record was last updated'
+);
+
+INSERT INTO site_config (site_name, site_logo, logo_alt_text, favicon, address, email, phone, linkidin, pinterest, git, home_banner_image, home_banner_alt_text, parallax_image, parallax_alt_text, meta_title, meta_description, meta_keywords, canonical_url, og_title, og_description, og_image)
+VALUES 
+('My Portfolio', 'https://example.com/logo.png', 'My Portfolio Logo', 'https://example.com/favicon.ico', '123 Main St, City, Country', 'contact@example.com', '+1234567890', 'https://linkedin.com/in/example', 'https://pinterest.com/example', 'https://github.com/example', 'https://example.com/banner.jpg', 'Home Banner Image', 'https://example.com/parallax.jpg', 'Parallax Image', 'My Portfolio - Professional Web Developer', 'Welcome to my portfolio website showcasing my skills, projects, and experience.', 'portfolio, web developer, software engineer, projects, skills', 'https://example.com', 'My Portfolio - Professional Web Developer', 'Welcome to my portfolio website showcasing my skills, projects, and experience.', 'https://example.com/og-image.jpg');
+
+
+=============================
+
+
+CREATE TABLE about_me (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    full_name VARCHAR(100) NOT NULL COMMENT 'Your full name (first name and middle name)',
+    sur_name VARCHAR(100) NOT NULL COMMENT 'Your surname or last name',
+    tagline VARCHAR(255) COMMENT 'A short tagline or headline (e.g., Full Stack Developer)',
+    skill_highlights TEXT COMMENT 'Key skills or expertise highlights',
+    description TEXT COMMENT 'A detailed description about yourself',
+    date_of_birth DATE COMMENT 'Your date of birth',
+    country VARCHAR(100) COMMENT 'Your country of residence',
+    image VARCHAR(255) COMMENT 'URL or path to your profile image',
+    image_alt_text VARCHAR(255) COMMENT 'Alt text for the profile image',
+    resume_file VARCHAR(255) COMMENT 'URL or path to the uploaded resume file',
+    meta_title VARCHAR(255) COMMENT 'Meta title for SEO',
+    meta_description TEXT COMMENT 'Meta description for SEO',
+    meta_keywords TEXT COMMENT 'Meta keywords for SEO',
+    canonical_url VARCHAR(255) COMMENT 'Canonical URL for the about page',
+    og_title VARCHAR(255) COMMENT 'Open Graph title for social sharing',
+    og_description TEXT COMMENT 'Open Graph description for social sharing',
+    og_image VARCHAR(255) COMMENT 'Open Graph image for social sharing',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT 'Timestamp when the record was created',
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Timestamp when the record was last updated'
+);
+
+INSERT INTO about_me (full_name, sur_name, tagline, skill_highlights, description, date_of_birth, country, image, image_alt_text, resume_file, meta_title, meta_description, meta_keywords, canonical_url, og_title, og_description, og_image)
+VALUES 
+('John', 'Doe', 'Full Stack Developer', 'Web Development, UI/UX Design, Mobile App Development', 'I am a passionate software developer with over 5 years of experience in building modern web and mobile applications.', '1990-05-15', 'United States', 'https://example.com/profile.jpg', 'Profile Image of John Doe', 'https://example.com/resume.pdf', 'About John Doe - Full Stack Developer', 'Learn more about John Doe, a full stack developer with expertise in web and mobile app development.', 'John Doe, full stack developer, web development, mobile app development', 'https://example.com/about', 'About John Doe - Full Stack Developer', 'Learn more about John Doe, a full stack developer with expertise in web and mobile app development.', 'https://example.com/profile.jpg');
+
+
+==================
+
+
+CREATE TABLE skills (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(100) NOT NULL COMMENT 'Title of the skill (e.g., JavaScript, Python)',
+    skill_expertise DECIMAL(5,2) COMMENT 'Level of expertise as a percentage (e.g., 85.50)',
+    skill_icon VARCHAR(255) COMMENT 'URL or path to the skill icon',
+    icon_alt_text VARCHAR(255) COMMENT 'Alt text for the skill icon',
+    display_order INT DEFAULT 0 COMMENT 'Order in which the skill should be displayed',
+    meta_title VARCHAR(255) COMMENT 'Meta title for SEO',
+    meta_description TEXT COMMENT 'Meta description for SEO',
+    meta_keywords TEXT COMMENT 'Meta keywords for SEO',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT 'Timestamp when the record was created',
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Timestamp when the record was last updated'
+);
+
+INSERT INTO skills (title, skill_expertise, skill_icon, icon_alt_text, display_order, meta_title, meta_description, meta_keywords)
+VALUES 
+('JavaScript', 95.00, 'https://example.com/js-icon.png', 'JavaScript Icon', 1, 'JavaScript Skill - John Doe', 'John Doe has 95% expertise in JavaScript.', 'JavaScript, web development, John Doe'),
+('Python', 80.50, 'https://example.com/python-icon.png', 'Python Icon', 2, 'Python Skill - John Doe', 'John Doe has 80.5% expertise in Python.', 'Python, backend development, John Doe'),
+('UI/UX Design', 75.00, 'https://example.com/uiux-icon.png', 'UI/UX Design Icon', 3, 'UI/UX Design Skill - John Doe', 'John Doe has 75% expertise in UI/UX Design.', 'UI/UX Design, web design, John Doe');
+
+
+====================
+
+
+CREATE TABLE services (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    service_title VARCHAR(255) NOT NULL COMMENT 'Title of the service',
+    service_short_description TEXT COMMENT 'Short description of the service',
+    service_long_description TEXT COMMENT 'Long description of the service',
+    service_image VARCHAR(255) COMMENT 'URL or path to the service image',
+    service_image_alt_text VARCHAR(255) COMMENT 'Alt text for the service image',
+    service_logo VARCHAR(255) COMMENT 'URL or path to the service logo',
+    logo_alt_text VARCHAR(255) COMMENT 'Alt text for the service logo',
+    display_order INT DEFAULT 0 COMMENT 'Order in which the service should be displayed',
+    meta_title VARCHAR(255) COMMENT 'Meta title for SEO',
+    meta_description TEXT COMMENT 'Meta description for SEO',
+    meta_keywords TEXT COMMENT 'Meta keywords for SEO',
+    canonical_url VARCHAR(255) COMMENT 'Canonical URL for the service page',
+    og_title VARCHAR(255) COMMENT 'Open Graph title for social sharing',
+    og_description TEXT COMMENT 'Open Graph description for social sharing',
+    og_image VARCHAR(255) COMMENT 'Open Graph image for social sharing',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT 'Timestamp when the record was created',
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Timestamp when the record was last updated'
+);
+
+INSERT INTO services (service_title, service_short_description, service_long_description, service_image, service_image_alt_text, service_logo, logo_alt_text, display_order, meta_title, meta_description, meta_keywords, canonical_url, og_title, og_description, og_image)
+VALUES 
+('Web Development', 'Build modern and responsive websites.', 'We specialize in creating fast, secure, and user-friendly websites using the latest technologies like HTML5, CSS3, JavaScript, and React.', 'https://example.com/web-dev.jpg', 'Web Development Service Image', 'https://example.com/web-dev-logo.png', 'Web Development Logo', 1, 'Web Development Service - John Doe', 'John Doe offers professional web development services.', 'web development, John Doe, responsive websites', 'https://example.com/services/web-development', 'Web Development Service - John Doe', 'John Doe offers professional web development services.', 'https://example.com/web-dev.jpg'),
+('Mobile App Development', 'Create cross-platform mobile applications.', 'We develop high-quality mobile apps for iOS and Android using frameworks like Flutter and React Native.', 'https://example.com/mobile-app.jpg', 'Mobile App Development Service Image', 'https://example.com/mobile-app-logo.png', 'Mobile App Development Logo', 2, 'Mobile App Development Service - John Doe', 'John Doe offers professional mobile app development services.', 'mobile app development, John Doe, cross-platform apps', 'https://example.com/services/mobile-app-development', 'Mobile App Development Service - John Doe', 'John Doe offers professional mobile app development services.', 'https://example.com/mobile-app.jpg');
+
+
+=================
+
+
+CREATE TABLE projects (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    project_title VARCHAR(255) NOT NULL COMMENT 'Title of the project',
+    slug VARCHAR(255) NOT NULL UNIQUE COMMENT 'URL-friendly version of the project title',
+    project_description TEXT COMMENT 'Description of the project',
+    project_image VARCHAR(255) COMMENT 'URL or path to the project image',
+    project_image_alt_text VARCHAR(255) COMMENT 'Alt text for the project image',
+    project_link VARCHAR(255) COMMENT 'URL to the live project or repository',
+    technologies_used TEXT COMMENT 'Technologies used in the project',
+    display_order INT DEFAULT 0 COMMENT 'Order in which the project should be displayed',
+    meta_title VARCHAR(255) COMMENT 'Meta title for SEO',
+    meta_description TEXT COMMENT 'Meta description for SEO',
+    meta_keywords TEXT COMMENT 'Meta keywords for SEO',
+    canonical_url VARCHAR(255) COMMENT 'Canonical URL for the project page',
+    og_title VARCHAR(255) COMMENT 'Open Graph title for social sharing',
+    og_description TEXT COMMENT 'Open Graph description for social sharing',
+    og_image VARCHAR(255) COMMENT 'Open Graph image for social sharing',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT 'Timestamp when the record was created',
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Timestamp when the record was last updated'
+);
+
+
+INSERT INTO projects (project_title, slug, project_description, project_image, project_image_alt_text, project_link, technologies_used, display_order, meta_title, meta_description, meta_keywords, canonical_url, og_title, og_description, og_image)
+VALUES 
+('Portfolio Website', 'portfolio-website', 'A personal portfolio website to showcase my work.', 'https://example.com/portfolio.jpg', 'Portfolio Website Image', 'https://example.com/portfolio', 'HTML, CSS, JavaScript, React', 1, 'Portfolio Website - John Doe', 'John Doe developed a personal portfolio website to showcase his work.', 'portfolio, web development, John Doe', 'https://example.com/projects/portfolio-website', 'Portfolio Website - John Doe', 'John Doe developed a personal portfolio website to showcase his work.', 'https://example.com/portfolio.jpg'),
+('E-Commerce Platform', 'e-commerce-platform', 'A fully functional e-commerce platform with payment integration.', 'https://example.com/ecommerce.jpg', 'E-Commerce Platform Image', 'https://example.com/ecommerce', 'React, Node.js, MongoDB, Stripe', 2, 'E-Commerce Platform - John Doe', 'John Doe developed a fully functional e-commerce platform with payment integration.', 'e-commerce, web development, John Doe', 'https://example.com/projects/e-commerce-platform', 'E-Commerce Platform - John Doe', 'John Doe developed a fully functional e-commerce platform with payment integration.', 'https://example.com/ecommerce.jpg');
+
+
+=====================
+
+
+CREATE TABLE testimonials (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    client_name VARCHAR(100) NOT NULL COMMENT 'Name of the client or peer',
+    client_role VARCHAR(100) COMMENT 'Role or designation of the client',
+    testimonial TEXT COMMENT 'Testimonial text',
+    client_image VARCHAR(255) COMMENT 'URL or path to the client image',
+    client_image_alt_text VARCHAR(255) COMMENT 'Alt text for the client image',
+    display_order INT DEFAULT 0 COMMENT 'Order in which the testimonial should be displayed',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT 'Timestamp when the record was created',
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Timestamp when the record was last updated'
+);
+
+INSERT INTO testimonials (client_name, client_role, testimonial, client_image, client_image_alt_text, display_order)
+VALUES 
+('Jane Smith', 'CEO at XYZ Corp', 'John is an amazing developer! Highly recommended.', 'https://example.com/jane.jpg', 'Jane Smith Image', 1),
+('Mike Johnson', 'CTO at ABC Inc', 'John delivered the project on time and exceeded our expectations.', 'https://example.com/mike.jpg', 'Mike Johnson Image', 2);
+
+
+
+======================
+
+
+
+CREATE TABLE experience (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    job_title VARCHAR(100) NOT NULL COMMENT 'Title of the job or position',
+    company_name VARCHAR(100) NOT NULL COMMENT 'Name of the company or organization',
+    start_date DATE NOT NULL COMMENT 'Start date of the job',
+    end_date DATE COMMENT 'End date of the job (NULL if still working)',
+    description TEXT COMMENT 'Description of your role and responsibilities',
+    location VARCHAR(100) COMMENT 'Location of the job (e.g., City, Country)',
+    is_current_job BOOLEAN DEFAULT FALSE COMMENT 'Indicates if this is your current job',
+    display_order INT DEFAULT 0 COMMENT 'Order in which the experience should be displayed',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT 'Timestamp when the record was created',
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Timestamp when the record was last updated'
+);
+
+
+INSERT INTO experience (job_title, company_name, start_date, end_date, description, location, is_current_job, display_order)
+VALUES 
+('Software Engineer', 'Tech Corp', '2020-06-01', '2023-05-31', 'Developed and maintained web applications using React and Node.js.', 'San Francisco, USA', FALSE, 1),
+('Senior Developer', 'Innovate Solutions', '2023-06-01', NULL, 'Leading a team to build scalable backend systems using Python and Django.', 'New York, USA', TRUE, 2);
+
+
+=======================
+
+
+
+
+CREATE TABLE education (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    degree VARCHAR(100) NOT NULL COMMENT 'Degree or qualification (e.g., Bachelor of Science)',
+    institution VARCHAR(100) NOT NULL COMMENT 'Name of the institution or school',
+    start_date DATE NOT NULL COMMENT 'Start date of the program',
+    end_date DATE COMMENT 'End date of the program (NULL if still studying)',
+    description TEXT COMMENT 'Description of the program or achievements',
+    location VARCHAR(100) COMMENT 'Location of the institution (e.g., City, Country)',
+    is_current BOOLEAN DEFAULT FALSE COMMENT 'Indicates if you are currently studying here',
+    display_order INT DEFAULT 0 COMMENT 'Order in which the education should be displayed',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT 'Timestamp when the record was created',
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Timestamp when the record was last updated'
+);
+
+
+INSERT INTO education (degree, institution, start_date, end_date, description, location, is_current, display_order)
+VALUES 
+('Bachelor of Science in Computer Science', 'University of Tech', '2016-09-01', '2020-05-31', 'Graduated with honors. Focused on software development and algorithms.', 'Boston, USA', FALSE, 1),
+('Master of Science in Data Science', 'Global University', '2023-09-01', NULL, 'Currently pursuing a master’s degree with a focus on machine learning and big data.', 'London, UK', TRUE, 2);
+
+
+==========================
+
+
+
+CREATE TABLE contact_requests (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL COMMENT 'Name of the visitor',
+    email VARCHAR(100) NOT NULL COMMENT 'Email of the visitor',
+    subject VARCHAR(255) COMMENT 'Subject of the message',
+    message TEXT COMMENT 'Message content',
+    status ENUM('pending', 'read', 'replied') DEFAULT 'pending' COMMENT 'Status of the message',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT 'Timestamp when the message was sent',
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Timestamp when the message was last updated'
+);
+
+INSERT INTO contact_requests (name, email, subject, message, status)
+VALUES 
+('Alice', 'alice@example.com', 'Project Inquiry', 'Hi, I would like to discuss a project with you.', 'pending'),
+('Bob', 'bob@example.com', 'Collaboration', 'I am interested in collaborating with you on a project.', 'read');
+
+
+
+=========================
+
+
+
+CREATE TABLE blog_posts (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL COMMENT 'Title of the blog post',
+    slug VARCHAR(255) NOT NULL UNIQUE COMMENT 'URL-friendly version of the title',
+    content LONGTEXT COMMENT 'Content of the blog post',
+    featured_image VARCHAR(255) COMMENT 'URL or path to the featured image',
+    featured_image_alt_text VARCHAR(255) COMMENT 'Alt text for the featured image',
+    meta_title VARCHAR(255) COMMENT 'Meta title for SEO',
+    meta_description TEXT COMMENT 'Meta description for SEO',
+    meta_keywords TEXT COMMENT 'Meta keywords for SEO',
+    canonical_url VARCHAR(255) COMMENT 'Canonical URL for the blog post',
+    og_title VARCHAR(255) COMMENT 'Open Graph title for social sharing',
+    og_description TEXT COMMENT 'Open Graph description for social sharing',
+    og_image VARCHAR(255) COMMENT 'Open Graph image for social sharing',
+    schema_type VARCHAR(50) DEFAULT 'Article' COMMENT 'Structured data type (e.g., Article, BlogPosting)',
+    is_published BOOLEAN DEFAULT FALSE COMMENT 'Indicates if the post is published',
+    published_at TIMESTAMP COMMENT 'Timestamp when the post was published',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT 'Timestamp when the record was created',
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Timestamp when the record was last updated'
+);
+
+
+INSERT INTO blog_posts (title, slug, content, featured_image, featured_image_alt_text, meta_title, meta_description, meta_keywords, canonical_url, og_title, og_description, og_image, schema_type, is_published, published_at)
+VALUES 
+('Introduction to React', 'introduction-to-react', 'React is a JavaScript library for building user interfaces.', 'https://example.com/react.jpg', 'React Featured Image', 'Introduction to React - John Doe', 'Learn the basics of React, a JavaScript library for building user interfaces.', 'React, JavaScript, web development', 'https://example.com/blog/introduction-to-react', 'Introduction to React - John Doe', 'Learn the basics of React, a JavaScript library for building user interfaces.', 'https://example.com/react.jpg', 'Article', TRUE, '2023-10-01 10:00:00'),
+('Getting Started with Python', 'getting-started-with-python', 'Python is a versatile programming language.', 'https://example.com/python.jpg', 'Python Featured Image', 'Getting Started with Python - John Doe', 'Learn the basics of Python, a versatile programming language.', 'Python, programming, backend development', 'https://example.com/blog/getting-started-with-python', 'Getting Started with Python - John Doe', 'Learn the basics of Python, a versatile programming language.', 'https://example.com/python.jpg', 'Article', TRUE, '2023-10-05 12:00:00');
+
+
+==================================
+
+
+CREATE TABLE dynamic_settings (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    setting_key VARCHAR(100) NOT NULL UNIQUE COMMENT 'Key for the setting (e.g., site_title, header_script)',
+    setting_value LONGTEXT COMMENT 'Value for the setting',
+    setting_type ENUM('text', 'html', 'css', 'js') DEFAULT 'text' COMMENT 'Type of the setting (text, HTML, CSS, JS)',
+    description TEXT COMMENT 'Description of the setting',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT 'Timestamp when the record was created',
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Timestamp when the record was last updated'
+);
+
+
+INSERT INTO dynamic_settings (setting_key, setting_value, setting_type, description)
+VALUES 
+('site_title', 'My Portfolio - Professional Web Developer', 'text', 'The title of the website displayed in the browser tab and SEO'),
+('header_script', '<script src="https://example.com/custom.js"></script>', 'js', 'Custom JavaScript to be included in the header'),
+('footer_script', '<script src="https://example.com/analytics.js"></script>', 'js', 'Custom JavaScript to be included in the footer'),
+('custom_css', 'body { background-color: #f0f0f0; }', 'css', 'Custom CSS to be included in the site');
